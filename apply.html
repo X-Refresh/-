@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подача заявки | Институт НМСТ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Институт <span>НМСТ</span></a>
+            <a href="dashboard.html" class="btn-register-sm" style="background: transparent; border: 1px solid var(--primary-color);">В кабинет</a>
+        </nav>
+    </header>
 
+    <div class="page-container">
+        <div class="content-box fade-in-section is-visible">
+            <h2>Уважаемые студенты и участники!</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Мы рады приветствовать вас на странице подачи проектов для участия в ежегодной конференции Института НМСТ. Прежде чем отправить заявку, пожалуйста, ознакомьтесь с правилами.</p>
+            
+            <h3>Правила оформления тезисов:</h3>
+            <ul>
+                <li>Объем тезисов не должен превышать 3 страниц формата А4.</li>
+                <li>Шрифт Times New Roman, кегль 12, интервал 1.5.</li>
+                <li>Файлы принимаются строго в форматах <strong>.pdf, .doc, .docx</strong>.</li>
+                <li>В названии файла укажите вашу Фамилию и Инициалы (например: <em>Иванов_ИИ_тезисы.pdf</em>).</li>
+            </ul>
+        </div>
+
+        <div class="auth-box fade-in-section is-visible" style="max-width: 600px; margin-top: 0;">
+            <h2 style="color: var(--primary-color);">Форма подачи заявки</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="fullname">ФИО докладчика</label>
+                    <input type="text" id="fullname" required placeholder="Иванов Иван Иванович">
+                </div>
+                <div class="form-group">
+                    <label for="project_topic">Тема проекта / доклада</label>
+                    <input type="text" id="project_topic" required placeholder="Введите название вашей работы">
+                </div>
+                <div class="form-group">
+                    <label for="thesis_file">Прикрепить файл с тезисами</label>
+                    <input type="file" id="thesis_file" accept=".pdf,.doc,.docx" required>
+                </div>
+                <button type="submit" class="btn-submit">Отправить заявку в оргкомитет</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
