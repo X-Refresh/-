@@ -199,6 +199,51 @@
                 closeModal();
             }
         }
+        
+        // --- Логика модального окна ---
+        const modal = document.getElementById("regModal");
+
+        function openModal() {
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Закрытие при клике вне окна
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // --- Логика таймера обратного отсчета ---
+        // Устанавливаем дедлайн (1 сентября 2026 года)
+        const countDownDate = new Date("Sep 1, 2026 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            // Математика для дней, часов, минут и секунд
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Выводим результат в элементы
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            // Если время вышло
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<div class='time-box'><span>РЕГИСТРАЦИЯ ЗАКРЫТА</span></div>";
+            }
+        }, 1000); // Обновление каждую секунду
     </script>
 </body>
 </html>
