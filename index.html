@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ежегодная конференция Института НМСТ</title>
+    <style>
+        /* Базовые настройки и переменные */
+        :root {
+            --primary-color: #72bf44; /* Зеленый акцент из референса */
+            --primary-hover: #5da036;
+            --bg-dark: #0f171e;
+            --text-light: #ffffff;
+            --text-muted: #a0aab2;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Навигация */
+        header {
+            background-color: rgba(15, 23, 30, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-register-sm {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-register-sm:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Главный экран (Hero Section) */
+        .hero {
+            padding: 150px 5% 100px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Декоративный элемент свечения на фоне */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 0%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(114, 191, 68, 0.15) 0%, rgba(15, 23, 30, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-info {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .info-item i {
+            color: var(--primary-color);
+        }
+
+        .btn-register-lg {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            width: fit-content;
+        }
+
+        .btn-register-lg:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .deadline-box {
+            margin-top: 3rem;
+            border: 1px solid rgba(114, 191, 68, 0.3);
+            background: rgba(114, 191, 68, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            max-width: 600px;
+        }
+
+        .deadline-box p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .deadline-box p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Институт <span>НМСТ</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">О конференции</a></li>
+                <li><a href="#program">Программа</a></li>
+                <li><a href="#speakers">Спикеры</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <a href="#register" class="btn-register-sm">Зарегистрироваться</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero-title">Ежегодная научно-практическая конференция Института НМСТ 2026</h1>
+        <p class="hero-subtitle">Инновационные технологии, перспективные материалы и системное проектирование в современной науке.</p>
+        
+        <div class="hero-info">
+            <div class="info-item">
+                <span>📅 15 - 17 октября 2026</span>
+            </div>
+            <div class="info-item">
+                <span>📍 г. Зеленоград, НИУ МИЭТ</span>
+            </div>
+        </div>
+
+        <a href="#register" class="btn-register-lg">Подать заявку на участие</a>
+
+        <div class="deadline-box">
+            <p><strong>Внимание:</strong> Прием заявок и тезисов на участие в конференции открыт до <strong>1 сентября 2026 г.</strong></p>
+            <p>Для участия необходимо зарегистрироваться и прикрепить тезисы доклада в личном кабинете. Период ранней оплаты оргвзноса (Early Bird) заканчивается 15 сентября.</p>
+        </div>
+    </section>
+
+</body>
+</html>
