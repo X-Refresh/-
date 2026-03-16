@@ -593,3 +593,59 @@ footer {
     border-radius: 8px;
     text-align: center;
 }
+/* --- ПАСХАЛКА --- */
+.cho-btn {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.1); /* Почти невидимая (10% видимости) */
+    font-size: 10px;
+    cursor: pointer;
+    z-index: 9998;
+    transition: color 0.3s;
+}
+
+.cho-btn:hover {
+    color: var(--primary-color); /* При наведении подсветится зеленым */
+}
+
+.easter-egg-screen {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: #000;
+    
+    /* СЮДА МОЖЕТЕ ВСТАВИТЬ СВОЮ КАРТИНКУ */
+    /* Например: background-image: url('../img/meme.jpg'); */
+    background-image: url('https://i.imgflip.com/4/348z03.jpg'); 
+    
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Класс, который мы будем добавлять скриптом, чтобы запустить тряску */
+.shake-it {
+    animation: shake 0.3s infinite; /* Трясется бесконечно, пока открыто */
+}
+
+/* Сама анимация эпичной тряски */
+@keyframes shake {
+    0% { transform: translate(2px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
