@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    <section class="about-location" id="location">
+    <section class="about-location fade-in-section" id="location">
         <h2 class="section-title">МЕСТО ПРОВЕДЕНИЯ: НИУ МИЭТ</h2>
         <p class="section-subtitle">Один из ведущих технических вузов России в области электроники.</p>
         <div class="location-details">
@@ -62,7 +62,7 @@
         </div>
     </section>
 
-    <section class="conference-topics" id="topics">
+    <section class="conference-topics fade-in-section" id="topics">
         <h2 class="section-title">КЛЮЧЕВЫЕ ТЕМЫ КОНФЕРЕНЦИИ</h2>
         <div class="topics-grid">
             <div class="topic-card">
@@ -83,7 +83,8 @@
             </div>
         </div>
     </section>
-    <section class="program" id="program">
+    
+    <section class="program fade-in-section" id="program">
             <h2 class="section-title">ПРОГРАММА КОНФЕРЕНЦИИ</h2>
             <p class="section-subtitle">Предварительное расписание мероприятий (может быть изменено)</p>
             <div class="schedule-container">
@@ -111,7 +112,7 @@
             </div>
         </section>
     
-        <section class="speakers" id="speakers">
+        <section class="speakers fade-in-section" id="speakers">
             <h2 class="section-title">ПРИГЛАШЕННЫЕ СПИКЕРЫ</h2>
             <div class="speakers-grid">
                 <div class="speaker-card">
@@ -229,6 +230,18 @@
                 document.getElementById("countdown").innerHTML = "<div class='time-box'><span>РЕГИСТРАЦИЯ ЗАКРЫТА</span></div>";
             }
         }, 1000); // Обновление каждую секунду
+        const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 }); // 0.1 означает, что анимация начнется, когда блок появится на 10%
+    
+            // Находим все элементы с классом fade-in-section и следим за ними
+            document.querySelectorAll('.fade-in-section').forEach((section) => {
+                observer.observe(section);
+            });
     </script>
 </body>
 </html>
