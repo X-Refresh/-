@@ -177,3 +177,130 @@ header {
 .deadline-box p:last-child {
     margin-bottom: 0;
 }
+/* ... rest of the CSS ... */
+
+/* Глобальные настройки для секций */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-muted);
+}
+
+/* Секция о месте проведения */
+.about-location {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.location-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.location-details p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.map-placeholder {
+    background-color: #1a252f;
+    border-radius: 8px;
+    aspect-ratio: 16/9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* Секция с темами */
+.conference-topics {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.topic-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(114, 191, 68, 0.3);
+}
+
+.topic-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.topic-card p {
+    color: var(--text-muted);
+}
+
+/* Подвал (Footer) */
+footer {
+    background-color: #0c1218;
+    padding: 80px 5% 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.footer-block h4 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.footer-block p {
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.footer-block a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer-block a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    text-align: center;
+    color: #6a747c;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+}
