@@ -395,3 +395,122 @@ footer {
 .btn-submit:hover {
     background-color: var(--primary-hover);
 }
+/* --- Стили для Таймера --- */
+.countdown-container {
+    margin-top: 2rem;
+    text-align: left;
+}
+.countdown-container p {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.countdown {
+    display: flex;
+    gap: 15px;
+}
+.time-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 80px;
+}
+.time-box span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-light);
+    line-height: 1;
+}
+.time-box small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* --- Стили для Программы --- */
+.program {
+    padding: 100px 5%;
+    background-color: #0c1218; /* Чуть темнее фон для контраста */
+}
+.schedule-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.schedule-item {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.schedule-item:last-child {
+    border-bottom: none;
+}
+.schedule-item .time {
+    color: var(--primary-color);
+    font-weight: bold;
+    min-width: 200px;
+}
+.schedule-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+.schedule-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- Стили для Спикеров --- */
+.speakers {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.speaker-card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: border 0.3s, transform 0.3s;
+}
+.speaker-card:hover {
+    border-color: rgba(114, 191, 68, 0.3);
+    transform: translateY(-5px);
+}
+.speaker-img {
+    width: 120px;
+    height: 120px;
+    background-color: #1a252f;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border: 3px solid var(--primary-color);
+}
+.speaker-card h3 {
+    margin-bottom: 5px;
+}
+.speaker-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+.speaker-topic {
+    display: inline-block;
+    background: rgba(114, 191, 68, 0.1);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
