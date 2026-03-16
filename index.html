@@ -213,6 +213,28 @@
             document.querySelectorAll('.fade-in-section').forEach((section) => {
                 observer.observe(section);
             });
+        // --- Логика ПАСХАЛКИ ---
+        const choBtn = document.getElementById('choBtn');
+        const easterEggScreen = document.getElementById('easterEggScreen');
+        const dubstepAudio = document.getElementById('dubstepAudio');
+
+        choBtn.addEventListener('click', () => {
+            // Показываем экран и включаем тряску
+            easterEggScreen.style.display = 'block';
+            easterEggScreen.classList.add('shake-it');
+            
+            // Включаем музон с самого начала
+            dubstepAudio.currentTime = 0; 
+            dubstepAudio.play();
+
+            // Запускаем таймер на 10 секунд (10000 миллисекунд)
+            setTimeout(() => {
+                // Выключаем всё
+                easterEggScreen.style.display = 'none';
+                easterEggScreen.classList.remove('shake-it');
+                dubstepAudio.pause();
+            }, 10000);
+        });
     </script>
     <div id="easterEggScreen" class="easter-egg-screen">
         <audio id="dubstepAudio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
