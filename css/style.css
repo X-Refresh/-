@@ -1,5 +1,7 @@
 html {
     scroll-behavior: smooth;
+}
+
 :root {
     --primary-color: #72bf44; /* Зеленый акцент из референса */
     --primary-hover: #5da036;
@@ -178,7 +180,6 @@ header {
 .deadline-box p:last-child {
     margin-bottom: 0;
 }
-/* ... rest of the CSS ... */
 
 /* Глобальные настройки для секций */
 .section-title {
@@ -305,9 +306,10 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 20px;
 }
-    /* Модальное окно регистрации */
+
+/* Модальное окно регистрации */
 .modal {
-    display: none; /* По умолчанию скрыто */
+    display: none; 
     position: fixed;
     z-index: 2000;
     left: 0;
@@ -392,5 +394,4 @@ footer {
 
 .btn-submit:hover {
     background-color: var(--primary-hover);
-}
 }
