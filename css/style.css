@@ -526,3 +526,70 @@ footer {
     opacity: 1;
     transform: none;
 }
+/* --- Стили для новых страниц (Регистрация, Кабинет, Заявка) --- */
+.page-container {
+    padding: 120px 5% 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.auth-box {
+    background-color: #162028;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(114, 191, 68, 0.3);
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 50px;
+}
+
+.auth-box h2 {
+    margin-bottom: 25px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.content-box {
+    background-color: #162028;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.content-box h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.content-box ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+}
+
+.content-box li {
+    margin-bottom: 10px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.dashboard-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(114, 191, 68, 0.5);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
