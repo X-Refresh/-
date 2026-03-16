@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ежегодная конференция Института НМСТ</title>
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
@@ -155,36 +156,6 @@
         </div>
         <p class="copyright">&copy; 2026 Институт НМСТ, НИУ МИЭТ. Все права защищены.</p>
     </footer>
-<div id="regModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2>Регистрация участника</h2>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="fullname">ФИО полностью</label>
-                    <input type="text" id="fullname" required placeholder="Иванов Иван Иванович">
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail (для доступа в личный кабинет)</label>
-                    <input type="email" id="email" required placeholder="example@miet.ru">
-                </div>
-                <div class="form-group">
-                    <label for="role">Системная роль</label>
-                    <select id="role" required>
-                        <option value="speaker">Докладчик (с тезисами)</option>
-                        <option value="listener">Слушатель (без доклада)</option>
-                        <option value="section_head">Руководитель секции</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="thesis">Прикрепить тезисы (.pdf, .docx)</label>
-                    <input type="file" id="thesis" accept=".pdf,.doc,.docx">
-                </div>
-                <button type="submit" class="btn-submit">Отправить заявку</button>
-            </form>
-        </div>
-    </div>
-
     <script>
         // --- Логика модального окна ---
         const modal = document.getElementById("regModal");
