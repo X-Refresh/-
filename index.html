@@ -218,28 +218,20 @@
         const easterEggScreen = document.getElementById('easterEggScreen');
         const dubstepAudio = document.getElementById('dubstepAudio');
 
-        choBtn.addEventListener('click', () => {
-            // Показываем экран и включаем тряску
-            easterEggScreen.style.display = 'block';
-            easterEggScreen.classList.add('shake-it');
-            
-            // Включаем музон с самого начала
-            dubstepAudio.currentTime = 27; 
-            dubstepAudio.play();
+        if(choBtn) { // Проверяем, существует ли кнопка
+            choBtn.addEventListener('click', () => {
+                easterEggScreen.style.display = 'block';
+                easterEggScreen.classList.add('shake-it');
+                
+                dubstepAudio.currentTime = 27; // Дроп с 27 секунды
+                dubstepAudio.play().catch(e => console.log("Нужно кликнуть по странице, чтобы звук разрешился"));
 
-            // Запускаем таймер на 10 секунд (10000 миллисекунд)
-            setTimeout(() => {
-                // Выключаем всё
-                easterEggScreen.style.display = 'none';
-                easterEggScreen.classList.remove('shake-it');
-                dubstepAudio.pause();
-            }, 10000);
-        });
-    </script>
-    <div id="easterEggScreen" class="easter-egg-screen">
-        <audio id="dubstepAudio" src="img/SKisM_Habstrakt_and_Megalodon_-_Jaguar_28579750.mp3" preload="auto"></audio>
-    </div>
-
-    <button id="choBtn" class="cho-btn">Чо</button>
+                setTimeout(() => {
+                    easterEggScreen.style.display = 'none';
+                    easterEggScreen.classList.remove('shake-it');
+                    dubstepAudio.pause();
+                }, 10000);
+            });
+        }
 </body>
 </html>
