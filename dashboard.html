@@ -84,7 +84,7 @@
             <h2 id="dashboardTitle">Ваши заявки</h2>
             
             <div class="status-stepper" id="mainStepper">
-                <div class="step active" id="step1">
+                <div class="step" id="step1">
                     <div class="step-icon">1</div>
                     <span>Подано</span>
                 </div>
@@ -111,8 +111,7 @@
                         <th>Статус</th>
                     </tr>
                 </thead>
-                <tbody id="submissionsTableBody">
-                    </tbody>
+                <tbody id="submissionsTableBody"></tbody>
             </table>
         </div>
 
@@ -139,42 +138,38 @@
     </div>
 
     <script>
+        // --- Установка Email и загрузка имени ---
+        const userEmail = localStorage.getItem('userEmail') || 'student_miet@mail.ru';
+        document.getElementById('userEmail').innerText = userEmail;
 
-        const email = localStorage.getItem('userEmail') || 'student_miet@mail.ru';
-        document.getElementById('userEmail').innerText = email;
-    
-        // Подгружаем имя в инпут, если оно уже есть
         const savedName = localStorage.getItem('userName');
         if (savedName) {
             document.getElementById('userNameInput').value = savedName;
         }
-    
+
         function saveName() {
             const name = document.getElementById('userNameInput').value;
             if (name) {
                 localStorage.setItem('userName', name);
                 alert("Имя сохранено!");
-                location.reload(); // Перезагрузим, чтобы обновить отображение
+                location.reload(); 
             }
         }
-        // 1. Устанавливаем email пользователя
-        const email = localStorage.getItem('userEmail') || 'student_miet@mail.ru';
-        document.getElementById('userEmail').innerText = email;
 
-        // 2. Функция для отрисовки таблицы из LocalStorage
+        // --- Функция для отрисовки таблицы из LocalStorage ---
         function loadSubmissions() {
             const tableBody = document.getElementById('submissionsTableBody');
             const submissions = JSON.parse(localStorage.getItem('userSubmissions')) || [];
             
             if (submissions.length === 0) {
                 tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 20px; color: var(--text-muted);">У вас пока нет активных заявок</td></tr>';
-                document.getElementById('mainStepper').style.opacity = "0.3"; // Приглушаем степпер, если заявок нет
+                document.getElementById('mainStepper').style.opacity = "0.3";
                 return;
             }
 
-            // Очищаем таблицу и выводим все заявки
             tableBody.innerHTML = "";
-            submissions.reverse().forEach(sub => {
+            // Копируем и переворачиваем, чтобы новые были сверху
+            [...submissions].reverse().forEach(sub => {
                 const row = `
                     <tr>
                         <td>${sub.id}</td>
@@ -186,14 +181,13 @@
                 tableBody.innerHTML += row;
             });
 
-            // 3. Обновляем степпер по последней заявке
-            const lastStatus = submissions[0].status;
-            if (lastStatus === "Подано") {
+            // Обновляем степпер по последней заявке (самой новой в массиве submissions)
+            const latestSub = submissions[submissions.length - 1];
+            if (latestSub.status === "Подано" || latestSub.status === "В процессе") {
                 document.getElementById('step1').classList.add('active');
             }
         }
 
-        // Запускаем загрузку данных при открытии страницы
         loadSubmissions();
     </script>
 </body>
