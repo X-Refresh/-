@@ -32,10 +32,12 @@
     </div>
 
     <script>
-        // Имитация успешной регистрации и переход в личный кабинет
         document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Останавливаем стандартную отправку
-            window.location.href = 'dashboard.html'; // Перенаправляем
+            e.preventDefault();
+            const emailValue = document.getElementById('email').value;
+            // Сохраняем email в памяти браузера, чтобы показать его в кабинете
+            localStorage.setItem('userEmail', emailValue);
+            window.location.href = 'dashboard.html';
         });
     </script>
 </body>
