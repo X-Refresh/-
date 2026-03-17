@@ -156,13 +156,43 @@
             }
         }
 
+        // --- Функция ВЫХОДА из аккаунта ---
+        function logout() {
+            // Очищаем данные пользователя, но можем оставить заявки (или тоже удалить)
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userEmail');
+            // Перекидываем на главную
+            window.location.href = 'index.html';
+        }
+
+        // Навешиваем событие на кнопку "Выйти" в шапке
+        document.querySelector('.btn-register-sm[href="index.html"]').addEventListener('click', function(e) {
+            e.preventDefault(); // Останавливаем обычный переход
+            logout(); // Запускаем нашу функцию
+        });
+
+        // --- Функция УДАЛЕНИЯ заявки ---
+        function deleteSubmission(idToDelete) {
+            if(confirm("Вы уверены, что хотите отозвать эту заявку?")) {
+                let submissions = JSON.parse(localStorage.getItem('userSubmissions')) || [];
+                // Фильтруем массив, оставляя только те заявки, у которых ID не совпадает с удаляемым
+                submissions = submissions.filter(sub => sub.id !== idToDelete);
+                localStorage.setItem('userSubmissions', JSON.stringify(submissions));
+                loadSubmissions(); // Перерисовываем таблицу
+            }
+        }
+
         // --- Функция для отрисовки таблицы из LocalStorage ---
         function loadSubmissions() {
             const tableBody = document.getElementById('submissionsTableBody');
             const submissions = JSON.parse(localStorage.getItem('userSubmissions')) || [];
             
+            // Сбрасываем степпер
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('mainStepper').style.opacity = "1";
+
             if (submissions.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 20px; color: var(--text-muted);">У вас пока нет активных заявок</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding: 20px; color: var(--text-muted);">У вас пока нет активных заявок</td></tr>';
                 document.getElementById('mainStepper').style.opacity = "0.3";
                 return;
             }
@@ -176,12 +206,15 @@
                         <td>${sub.topic}</td>
                         <td>${sub.date}</td>
                         <td><span class="badge">${sub.status}</span></td>
+                        <td>
+                            <button onclick="deleteSubmission('${sub.id}')" style="background:none; border:none; color:#ff4d4d; cursor:pointer; font-size:1.2rem;" title="Удалить заявку">✖</button>
+                        </td>
                     </tr>
                 `;
                 tableBody.innerHTML += row;
             });
 
-            // Обновляем степпер по последней заявке (самой новой в массиве submissions)
+            // Обновляем степпер по последней заявке
             const latestSub = submissions[submissions.length - 1];
             if (latestSub.status === "Подано" || latestSub.status === "В процессе") {
                 document.getElementById('step1').classList.add('active');
