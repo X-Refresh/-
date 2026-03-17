@@ -649,3 +649,22 @@ footer {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+.user-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-link:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
