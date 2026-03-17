@@ -30,7 +30,7 @@
 
         <div class="auth-box fade-in-section is-visible" style="max-width: 600px; margin-top: 0;">
             <h2 style="color: var(--primary-color);">Форма подачи заявки</h2>
-            <form action="#" method="POST">
+            <form id="applyForm">
                 <div class="form-group">
                     <label for="fullname">ФИО докладчика</label>
                     <input type="text" id="fullname" required placeholder="Иванов Иван Иванович">
@@ -47,5 +47,39 @@
             </form>
         </div>
     </div>
+
+    <script>
+        document.getElementById('applyForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Останавливаем перезагрузку страницы
+
+            // 1. Собираем данные из полей
+            const fullName = document.getElementById('fullname').value;
+            const projectTopic = document.getElementById('project_topic').value;
+            const fileName = document.getElementById('thesis_file').files[0].name;
+
+            // 2. Формируем объект новой заявки
+            const newSubmission = {
+                id: "#2026-" + Math.floor(Math.random() * 900 + 100), // Случайный ID
+                topic: projectTopic,
+                author: fullName,
+                fileName: fileName,
+                date: new Date().toLocaleDateString(), // Текущая дата
+                status: "Подано" // Начальный статус
+            };
+
+            // 3. Достаем старый список заявок из памяти (если он есть)
+            let submissions = JSON.parse(localStorage.getItem('userSubmissions')) || [];
+
+            // 4. Добавляем новую заявку в массив
+            submissions.push(newSubmission);
+
+            // 5. Сохраняем обновленный список обратно в LocalStorage
+            localStorage.setItem('userSubmissions', JSON.stringify(submissions));
+
+            // 6. Уведомляем и перекидываем в кабинет
+            alert("Заявка успешно создана и сохранена в памяти браузера!");
+            window.location.href = 'dashboard.html';
+        });
+    </script>
 </body>
 </html>
