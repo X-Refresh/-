@@ -17,7 +17,9 @@
                 <li><a href="#speakers">Спикеры</a></li>
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
-            <a href="register.html" class="btn-register-sm">Зарегистрироваться</a>
+            <div id="authBlock">
+                <a href="register.html" class="btn-register-sm">Зарегистрироваться</a>
+            </div>
         </nav>
     </header>
 
@@ -163,6 +165,23 @@
     <button id="choBtn" class="cho-btn">Чо</button>
 
     <script>
+        // --- Проверка авторизации ---
+        function checkAuth() {
+            const userName = localStorage.getItem('userName');
+            const authBlock = document.getElementById('authBlock');
+        
+            if (userName && authBlock) {
+                // Заменяем кнопку регистрации на имя со ссылкой в кабинет
+                authBlock.innerHTML = `
+                    <a href="dashboard.html" class="user-link">
+                        👤 ${userName}
+                    </a>
+                `;
+            }
+        }
+        
+        // Запускаем проверку при загрузке страницы
+        checkAuth();
         // --- Логика таймера обратного отсчета ---
         const countDownDate = new Date("Sep 1, 2026 00:00:00").getTime();
         const x = setInterval(function() {
