@@ -117,6 +117,16 @@
         </div>
 
         <div class="dashboard-grid">
+            <div class="content-box fade-in-section is-visible">
+                <h3>Настройки профиля</h3>
+                <div class="form-group" style="margin-top: 15px; max-width: 400px;">
+                    <label for="userNameInput">Ваше имя (будет отображаться на главной)</label>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <input type="text" id="userNameInput" placeholder="Введите имя">
+                        <button onclick="saveName()" class="btn-register-sm" style="height: 42px;">Сохранить</button>
+                    </div>
+                </div>
+            </div>
             <div class="dashboard-card">
                 <h3>Документы</h3>
                 <p id="docsText" style="color: var(--text-muted); margin-top: 10px;">Здесь появятся квитанции после одобрения заявки.</p>
@@ -129,6 +139,24 @@
     </div>
 
     <script>
+
+        const email = localStorage.getItem('userEmail') || 'student_miet@mail.ru';
+        document.getElementById('userEmail').innerText = email;
+    
+        // Подгружаем имя в инпут, если оно уже есть
+        const savedName = localStorage.getItem('userName');
+        if (savedName) {
+            document.getElementById('userNameInput').value = savedName;
+        }
+    
+        function saveName() {
+            const name = document.getElementById('userNameInput').value;
+            if (name) {
+                localStorage.setItem('userName', name);
+                alert("Имя сохранено!");
+                location.reload(); // Перезагрузим, чтобы обновить отображение
+            }
+        }
         // 1. Устанавливаем email пользователя
         const email = localStorage.getItem('userEmail') || 'student_miet@mail.ru';
         document.getElementById('userEmail').innerText = email;
